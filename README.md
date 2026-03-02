@@ -6,7 +6,7 @@
 
 **Intelligent graph data structure management with automatic pruning, rarity protection, and hidden relationship discovery.**
 
-[日本語版はこちら](#日本語)
+[日本語版 / Japanese](README_ja.md)
 
 ---
 
@@ -218,6 +218,14 @@ Each use case has a runnable example demonstrating all patent features:
 
 See [docs/examples_guide.md](docs/examples_guide.md) for detailed descriptions and [docs/patent_claim_mapping.md](docs/patent_claim_mapping.md) for patent claim correspondence.
 
+### Data-Flow Visualization
+
+Visual documentation showing concrete input/output data through each formula:
+
+- [Processing Flow](docs/data-flow/processing_flow.md) — Formula traces with numerical examples
+- [Figures Guide (Japanese)](docs/data-flow/figures_guide.md) — Detailed explanation of all 10 charts
+- Regenerate charts: `python docs/data-flow/generate_figures.py`
+
 ---
 
 ## Patent Information
@@ -341,45 +349,6 @@ Note: By contributing, you agree that your contributions will be licensed under 
 
 ---
 
-<a name="日本語"></a>
-## 日本語
+## 日本語ドキュメント
 
-### Graph Metabolic Manager とは
-
-グラフ型データ構造を自動で管理する特許アルゴリズムのリファレンス実装です。
-
-**3つの機能**:
-1. **代謝制御** — 局所混雑度に基づく不要エッジの自動整理
-2. **希少性保護** — 孤立ノードの多段審査による保護
-3. **整合性発見** — 構造的類似性に基づく隠れた関連の発見
-
-**特徴**:
-- グラフ全体走査不要（局所統計のみで動作）
-- 大規模データに対応可能
-- 言語・プラットフォーム非依存
-
-### インストールと実行
-
-```bash
-# インストール（開発モード）
-pip install -e .
-
-# テストの実行
-pip install -e ".[dev]"
-pytest tests/ -v
-
-# 使用例の実行
-python examples/01_basic_usage.py
-```
-
-### ライセンスについて
-
-ソースコードは **Apache License 2.0**（特許除外条項付き）で公開しています。
-
-- **ソースコード**: Apache 2.0（自由に利用・改変・再配布可能）
-- **特許アルゴリズム**: 商用利用には別途特許ライセンスが必要
-
-詳細は [PATENT_NOTICE.md](PATENT_NOTICE.md) をご確認ください。
-
-**特許情報**: 特願2026-027032
-**お問い合わせ**: [メールアドレス]
+日本語の詳細ドキュメントは **[README_ja.md](README_ja.md)** をご覧ください。
