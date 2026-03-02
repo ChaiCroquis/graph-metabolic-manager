@@ -70,7 +70,7 @@ H が目標値 H_target を下回ると、
 
 ## デモで体験する
 
-[▶ メタ制御デモ](https://graph-metabolic-manager.streamlit.app/)
+[▶ メタ制御デモ](https://graph-metabolic-manager-mrjgdxzpcxccmjpnvkfjdx.streamlit.app/)
 
 - k_opt を変えて、最適ポイントが移動する様子を確認
 - η（学習率）を大きくすると、収束が速くなる（が振動も大きくなる）

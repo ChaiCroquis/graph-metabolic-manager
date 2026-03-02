@@ -56,7 +56,7 @@
 理論だけでは伝わらないので、
 ブラウザで実際にパラメータをいじれるデモを作りました。
 
-**[▶ インタラクティブデモ](https://graph-metabolic-manager.streamlit.app/)**
+**[▶ インタラクティブデモ](https://graph-metabolic-manager-mrjgdxzpcxccmjpnvkfjdx.streamlit.app/)**
 
 スライダーを動かすと、グラフがリアルタイムで変化します。
 「あ、こういうことか」と感じてもらえるはずです。
@@ -79,7 +79,7 @@
 ## リンク
 
 - GitHub: https://github.com/ChaiCroquis/graph-metabolic-manager
-- デモ: https://graph-metabolic-manager.streamlit.app/
+- デモ: https://graph-metabolic-manager-mrjgdxzpcxccmjpnvkfjdx.streamlit.app/
 - 特許出願: 特願2026-027032
 
 次回は「代謝制御」— 混雑した領域のエッジがどう減衰するかを、

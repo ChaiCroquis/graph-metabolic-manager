@@ -3,7 +3,7 @@
 [![CI](https://github.com/ChaiCroquis/graph-metabolic-manager/actions/workflows/ci.yml/badge.svg)](https://github.com/ChaiCroquis/graph-metabolic-manager/actions/workflows/ci.yml)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
 [![License: Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://graph-metabolic-manager.streamlit.app/)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://graph-metabolic-manager-mrjgdxzpcxccmjpnvkfjdx.streamlit.app/)
 
 **Intelligent graph data structure management with automatic pruning, rarity protection, and hidden relationship discovery.**
 
@@ -13,7 +13,7 @@
 
 ## Interactive Demo
 
-**[Try it online](https://graph-metabolic-manager.streamlit.app/)** — No installation needed.
+**[Try it online](https://graph-metabolic-manager-mrjgdxzpcxccmjpnvkfjdx.streamlit.app/)** — No installation needed.
 
 Explore all four core features interactively:
 - Adjust parameters with sliders and see real-time chart updates

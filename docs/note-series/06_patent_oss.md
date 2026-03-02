@@ -72,7 +72,7 @@ EC・知識管理・医療・金融・IoT・通信・セキュリティ・
 
 技術の全体像をブラウザで体験できます：
 
-**[▶ デモを試す](https://graph-metabolic-manager.streamlit.app/)**
+**[▶ デモを試す](https://graph-metabolic-manager-mrjgdxzpcxccmjpnvkfjdx.streamlit.app/)**
 
 ---
 
@@ -103,7 +103,7 @@ EC・知識管理・医療・金融・IoT・通信・セキュリティ・
 ## リンク
 
 - GitHub: https://github.com/ChaiCroquis/graph-metabolic-manager
-- デモ: https://graph-metabolic-manager.streamlit.app/
+- デモ: https://graph-metabolic-manager-mrjgdxzpcxccmjpnvkfjdx.streamlit.app/
 - 特許出願: 特願2026-027032
 
 ---

@@ -40,5 +40,5 @@
 ## 共通リンク（全記事に掲載）
 
 - GitHub: https://github.com/ChaiCroquis/graph-metabolic-manager
-- デモ: https://graph-metabolic-manager.streamlit.app/
+- デモ: https://graph-metabolic-manager-mrjgdxzpcxccmjpnvkfjdx.streamlit.app/
 - 特許: 特願2026-027032

@@ -55,7 +55,7 @@ C=10の環境では、C=2の **17倍** の速さで情報が薄まります。
 
 ## デモで体験する
 
-[▶ 代謝制御デモ](https://graph-metabolic-manager.streamlit.app/)
+[▶ 代謝制御デモ](https://graph-metabolic-manager-mrjgdxzpcxccmjpnvkfjdx.streamlit.app/)
 
 スライダーでα、β、γを変えると：
 - 減衰率曲線がリアルタイムで変化

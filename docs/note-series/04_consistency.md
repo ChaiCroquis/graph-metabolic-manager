@@ -65,7 +65,7 @@ S = (7×S_sys + 2×S_rel + 1×S_attr) / 10
 
 ## デモで体験する
 
-[▶ 整合性発見デモ](https://graph-metabolic-manager.streamlit.app/)
+[▶ 整合性発見デモ](https://graph-metabolic-manager-mrjgdxzpcxccmjpnvkfjdx.streamlit.app/)
 
 - theta_L / theta_U を動かして、発見される関係が変わる様子を確認
 - 固有値スペクトル（構造の指紋）を視覚的に比較

@@ -3,7 +3,7 @@
 [![CI](https://github.com/ChaiCroquis/graph-metabolic-manager/actions/workflows/ci.yml/badge.svg)](https://github.com/ChaiCroquis/graph-metabolic-manager/actions/workflows/ci.yml)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
 [![License: Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://graph-metabolic-manager.streamlit.app/)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://graph-metabolic-manager-mrjgdxzpcxccmjpnvkfjdx.streamlit.app/)
 
 **グラフ型データ構造の自動管理 — 不要データの代謝・希少データの保護・隠れた関連の発見**
 
@@ -13,7 +13,7 @@
 
 ## インタラクティブデモ
 
-**[オンラインで試す](https://graph-metabolic-manager.streamlit.app/)** — インストール不要
+**[オンラインで試す](https://graph-metabolic-manager-mrjgdxzpcxccmjpnvkfjdx.streamlit.app/)** — インストール不要
 
 4つのコア機能をインタラクティブに体験できます：
 - スライダーでパラメータを調整、リアルタイムでチャート更新

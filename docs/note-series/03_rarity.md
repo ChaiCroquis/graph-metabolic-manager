@@ -73,7 +73,7 @@
 
 ## デモで体験する
 
-[▶ 希少性保護デモ](https://graph-metabolic-manager.streamlit.app/)
+[▶ 希少性保護デモ](https://graph-metabolic-manager-mrjgdxzpcxccmjpnvkfjdx.streamlit.app/)
 
 - Twait1/Twait2を変えて、保護期間の効果を確認
 - 保護あり/なしの比較グラフ
