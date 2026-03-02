@@ -3,10 +3,22 @@
 [![CI](https://github.com/ChaiCroquis/graph-metabolic-manager/actions/workflows/ci.yml/badge.svg)](https://github.com/ChaiCroquis/graph-metabolic-manager/actions/workflows/ci.yml)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
 [![License: Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://graph-metabolic-manager.streamlit.app/)
 
 **Intelligent graph data structure management with automatic pruning, rarity protection, and hidden relationship discovery.**
 
 [日本語版 / Japanese](README_ja.md)
+
+---
+
+## Interactive Demo
+
+**[Try it online](https://graph-metabolic-manager.streamlit.app/)** — No installation needed.
+
+Explore all four core features interactively:
+- Adjust parameters with sliders and see real-time chart updates
+- Visualize graph structures with network diagrams
+- Run full pipeline simulations with custom settings
 
 ---
 
@@ -320,6 +332,10 @@ graph-metabolic-manager/
 │   ├── test_integration.py        # End-to-end integration tests
 │   ├── test_trace_logging.py      # TRACE log level registration tests
 │   └── test_patent_verification.py # Patent verification (28 industries × 20)
+├── streamlit_app/                # Interactive Streamlit demo
+│   ├── app.py                    # Home page
+│   ├── pages/                    # Feature demo pages (5 pages)
+│   └── components/               # Shared visualization helpers
 └── docs/
     ├── algorithm_overview.md      # Algorithm documentation
     ├── examples_guide.md          # Examples guide (28 industry scenarios)

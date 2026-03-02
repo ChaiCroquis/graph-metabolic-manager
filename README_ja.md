@@ -3,10 +3,22 @@
 [![CI](https://github.com/ChaiCroquis/graph-metabolic-manager/actions/workflows/ci.yml/badge.svg)](https://github.com/ChaiCroquis/graph-metabolic-manager/actions/workflows/ci.yml)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
 [![License: Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://graph-metabolic-manager.streamlit.app/)
 
 **グラフ型データ構造の自動管理 — 不要データの代謝・希少データの保護・隠れた関連の発見**
 
 [English version](README.md)
+
+---
+
+## インタラクティブデモ
+
+**[オンラインで試す](https://graph-metabolic-manager.streamlit.app/)** — インストール不要
+
+4つのコア機能をインタラクティブに体験できます：
+- スライダーでパラメータを調整、リアルタイムでチャート更新
+- ネットワーク図でグラフ構造を可視化
+- カスタム設定で統合パイプラインを実行
 
 ---
 
@@ -353,6 +365,10 @@ graph-metabolic-manager/
 ├── examples/                      # 28業界サンプル
 ├── tests/                         # 629テスト
 ├── benchmarks/                    # パフォーマンスベンチマーク
+├── streamlit_app/                 # インタラクティブデモ（Streamlit）
+│   ├── app.py                     # ホームページ
+│   ├── pages/                     # 機能別デモページ（5ページ）
+│   └── components/                # 共通可視化ヘルパー
 └── docs/                          # ドキュメント
     ├── data-flow/                 # データフロー可視化（図表10枚）
     │   ├── figures_guide.md       # 図表ガイド（日本語）
