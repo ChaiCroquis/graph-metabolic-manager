@@ -1,0 +1,98 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "graph-metabolic-manager"
+version = "0.2.1"
+description = "Intelligent graph data structure management with automatic pruning, rarity protection, and hidden relationship discovery."
+readme = "README.md"
+license = {text = "Apache-2.0 WITH Patent-Exclusion"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Yasuhiro Kuroki"},
+]
+keywords = [
+    "graph",
+    "data-structure",
+    "algorithm",
+    "knowledge-graph",
+    "recommendation-system",
+    "graph-database",
+    "data-management",
+    "automatic-pruning",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Database",
+    "Typing :: Typed",
+]
+dependencies = [
+    "numpy>=1.20.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "ruff>=0.8.0",
+    "mypy>=1.10",
+]
+
+[project.urls]
+Homepage = "https://github.com/ChaiCroquis/graph-metabolic-manager"
+Repository = "https://github.com/ChaiCroquis/graph-metabolic-manager"
+Issues = "https://github.com/ChaiCroquis/graph-metabolic-manager/issues"
+
+[tool.setuptools.packages.find]
+include = ["graph_metabolic_manager*"]
+
+[tool.setuptools.package-data]
+graph_metabolic_manager = ["py.typed"]
+
+# --- Ruff (linter + formatter) ---
+[tool.ruff]
+target-version = "py310"
+line-length = 99
+
+[tool.ruff.lint]
+select = [
+    "E",    # pycodestyle errors
+    "W",    # pycodestyle warnings
+    "F",    # pyflakes
+    "I",    # isort (import sorting)
+    "UP",   # pyupgrade
+    "B",    # flake8-bugbear
+    "SIM",  # flake8-simplify
+]
+ignore = ["E501"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["graph_metabolic_manager"]
+
+# --- Mypy (static type checking) ---
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+
+[[tool.mypy.overrides]]
+module = "numpy.*"
+ignore_missing_imports = true
+
+# --- Pytest ---
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"
