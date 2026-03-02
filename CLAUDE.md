@@ -258,7 +258,7 @@ C:/Users/user/AppData/Local/Programs/Python/Python313/python.exe -c "import logg
 ## 既知のプレースホルダ（ユーザーが手動対応）
 
 - GitHubユーザー名: `ChaiCroquis`（置換済み）
-- `[Email address]` / `[メールアドレス]` — 連絡先（README.md, PATENT_NOTICE.md内4箇所）
+- メールアドレス: `garden.of.knowledge.chai@gmail.com`（置換済み）
 
 ---
 

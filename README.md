@@ -253,7 +253,7 @@ See [PATENT_NOTICE.md](PATENT_NOTICE.md) for details.
 - Field-limited license
 - Technical support included
 
-**Contact**: [Email address]
+**Contact**: garden.of.knowledge.chai@gmail.com
 
 ---
 

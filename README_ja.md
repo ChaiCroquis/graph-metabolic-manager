@@ -327,7 +327,7 @@ python docs/data-flow/generate_figures.py
 - 分野限定ライセンス
 - 技術サポート付きライセンス
 
-**お問い合わせ**: [メールアドレス]
+**お問い合わせ**: garden.of.knowledge.chai@gmail.com
 
 ---
 
