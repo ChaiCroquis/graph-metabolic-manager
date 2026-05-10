@@ -6,6 +6,21 @@ This guide explains what each example demonstrates, what problem it addresses, a
 
 ---
 
+> **Note on scope** — All 28 examples in this guide are **illustrations
+> of the algorithm's mechanics on synthetic data**, not validations on
+> real industry datasets. Each example builds a synthetic graph in
+> which structurally rare nodes are constructed to coincide with the
+> "valuable" ground-truth nodes. Whether real-world data in any given
+> industry has this same property must be checked separately. See
+> [applicability.md](applicability.md) for the honest classification of
+> these scenarios and the empirically known applicability boundaries
+> (some named industries — e.g. financial fraud, citation networks,
+> social networks — have been shown empirically *not* to fit the
+> algorithm in a sister project, despite being included here as
+> illustrations).
+
+---
+
 ## Overview
 
 All examples follow the same pattern:
@@ -698,6 +713,18 @@ python examples/01_basic_usage.py
 
 <a name="日本語版"></a>
 ## 日本語版
+
+> **適用範囲についての注記** — 本ガイドの28サンプルはすべて
+> **合成データ上でアルゴリズムの仕組みを示す illustration** であり、
+> 各業界の実データに対する validation ではない。各サンプルは
+> 「構造的に稀少なノードが、価値ある ground-truth ノードと一致する」
+> ように構築された合成グラフを用いている。実世界の各業界データが
+> 同じ性質を持つかは別途確認が必要。本シナリオの率直な分類と、
+> 実データで判明している適用境界については
+> [applicability.md](applicability.md) 参照
+> （金融 fraud / 引用ネットワーク / SNS など、本ガイドで illustration
+> として挙げている業界の一部は、姉妹プロジェクトで実データ上
+> *本アルゴリズムが適用困難* と判明している）。
 
 ### 各Exampleの概要
 

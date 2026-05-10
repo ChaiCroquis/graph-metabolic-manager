@@ -37,7 +37,7 @@ Graph Metabolic Manager is a reference implementation of a patented algorithm fo
 - **Local-only computation** — No full graph traversal needed. Each edge is evaluated using only `deg(u) + deg(v)`
 - **Scalable** — Works from small graphs to millions of nodes
 - **Platform-agnostic** — Pure algorithm, implementable in any language
-- **Verified** — 629 tests passing including 560 patent verification tests across 28 industries (see [Verification](#verification))
+- **Verified on synthetic scenarios** — 629 tests passing, including 560 patent verification tests across 28 illustrative industry scenarios. The scenarios are synthetic graphs constructed so that structurally rare nodes coincide with the ground-truth important nodes; see [Scope of validity](docs/applicability.md) for what this does and does not establish.
 
 ---
 
@@ -190,6 +190,31 @@ pytest tests/ -v
 | **Patent verification (28 industries × 20)** | **560** | **All Pass** |
 
 The patent verification suite tests all 4 patent features (metabolic control, rarity protection, consistency discovery, meta control) across 28 industry scenarios. See [docs/verification_report.md](docs/verification_report.md) for the full report.
+
+### Scope of validity
+
+The 28 industry scenarios are **synthetic graphs** in which the test data
+generator deliberately constructs "truth" nodes as low-weight, low-degree
+(structurally rare) and "garbage" nodes as isolated. The test suite
+therefore demonstrates that the algorithm preserves structurally rare
+nodes when structural rareness coincides with task importance — a
+condition that is **not guaranteed to hold on real-world data** in any
+specific industry.
+
+Real-world applicability requires that the structural rareness in the
+graph correlates with the task-level importance of nodes. This
+correlation has been empirically validated in some domains (e.g.
+git-archive merge commits, path-critical bottlenecks on non-scale-free
+graphs) and empirically falsified in others (e.g. scale-free social /
+citation networks where high-degree hubs are important, density-based
+fraud detection, general semantic retrieval).
+
+For honest classification of the 28 example scenarios and the
+empirically known applicability boundaries, see
+[docs/applicability.md](docs/applicability.md). Any real deployment
+should validate on real data against an appropriate baseline (Random,
+TopDegree, domain-specific method) before any claim of effectiveness
+is made.
 
 ---
 

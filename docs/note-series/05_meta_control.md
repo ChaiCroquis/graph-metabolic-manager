@@ -95,3 +95,12 @@ H は高く、α は変化なし → 現状維持
 最終回では、なぜこの技術を **特許を取りながらオープンソースにしたのか** 、
 その戦略と、28業界への適用可能性、
 そしてこのプロジェクトの今後について書きます。
+
+
+---
+
+## 本記事の検証範囲について
+
+本記事および本シリーズで示した「28業界×629テスト」「全業界で全パス」等の検証結果は、すべて **合成データ上のシナリオ** に基づきます。各業界の実データへの適用可能性は、本アルゴリズムの decisive predictor 「構造的稀少性が業務上の重要度と相関するか」に依存します。
+
+シナリオの率直な分類と、実データで適用困難であることが判明している領域（scale-free な SNS / 引用ネットワーク、density-based な金融 fraud 検出、一般 semantic retrieval 等）の honest documentation は [applicability.md](https://github.com/ChaiCroquis/graph-metabolic-manager/blob/main/docs/applicability.md) を参照してください。

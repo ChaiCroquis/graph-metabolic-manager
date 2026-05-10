@@ -27,6 +27,50 @@ Total tests: 629 passed
 
 ---
 
+## Scope of Validity (read this first)
+
+**The 28 industry scenarios are synthetic graphs.** The test generator
+[`_build_standard()`](../tests/test_patent_verification.py) deliberately
+constructs each scenario so that:
+
+- "truth" nodes are connected with **low-weight (0.04–0.10), low-degree
+  edges** to a small number of normal nodes
+- "normal" nodes are densely interconnected with **high-weight (0.5–1.0)
+  edges**
+- "garbage" nodes are added in **complete isolation**
+
+This means each scenario encodes the assumption that **structural
+rareness ≡ task importance** by construction. The 560 patent
+verification tests therefore demonstrate:
+
+✅ The algorithm correctly preserves structurally rare nodes when
+   structural rareness coincides with the ground-truth important nodes.
+
+❌ They do NOT demonstrate that real-world data in the named industries
+   actually has this property, nor that the algorithm outperforms
+   baselines (Random, TopDegree, density-based methods) on real data
+   in those industries.
+
+A sister project, `kdf-perovskite`, has applied the same theoretical
+foundation to real data across many domains and established a
+**decisive predictor** of applicability: the algorithm decisively beats
+baselines **only when structural rareness in the graph is correlated
+with task importance**. Empirically known *failure* domains include
+scale-free networks (citation, social), density-based anomaly
+detection (financial fraud), general semantic retrieval, and metadata-
+minority detection.
+
+For the honest classification of the 28 example scenarios and the
+empirically known applicability boundaries, see
+[applicability.md](applicability.md).
+
+The per-feature verification results below (Patent Features 1–4 and
+Integration) should be read as **"the algorithm does what the patent
+specifies on the constructed scenarios"**, not as cross-industry
+real-world validation.
+
+---
+
 ## Patent Feature 1: Metabolic Control (Claims 1–10)
 
 **What is verified**: Congestion-based pruning correctly removes
@@ -187,6 +231,42 @@ pytest tests/test_patent_verification.py -k "TestIntegrationAllFeatures" -v
   特許検証テスト:     560件 (28業界シナリオ × 20テスト)
 ```
 
+### 検証の妥当範囲（先にお読みください）
+
+**28業界シナリオはすべて合成グラフです。** テスト生成器
+[`_build_standard()`](../tests/test_patent_verification.py) は各シナリオを
+意図的に以下のように構築している。
+
+- "truth" ノード: 少数の normal ノードに対して **低 weight (0.04–0.10)・低次数** で接続
+- "normal" ノード: **高 weight (0.5–1.0)** で密に相互接続
+- "garbage" ノード: **完全に孤立した状態** で追加
+
+これは各シナリオが「**構造的稀少性 ≡ 業務上の重要度**」という前提を
+構築時に強制していることを意味する。560件の特許検証テストは以下を
+立証している。
+
+✅ 構造的稀少性が ground-truth として価値あるノードと一致する場合に、
+   本アルゴリズムが構造的に稀少なノードを正しく保護することを示す。
+
+❌ 28業界の実データが実際にこの性質を持つこと、および同業界の実データ
+   上で本アルゴリズムがベースライン（Random・TopDegree・density-based
+   手法）を上回ることは、本テストでは立証されていない。
+
+姉妹プロジェクト `kdf-perovskite` は同一の理論基盤を多領域の実データ
+に適用しており、適性の **決定的予測子 (decisive predictor)** を確立して
+いる。すなわち「**構造的稀少性が課題重要度と相関する条件下でのみ**、
+本アルゴリズムは決定的にベースラインを上回る」。実データで失敗
+することが判明している領域には、scale-free ネットワーク（引用・SNS）、
+density-based anomaly detection（金融 fraud）、一般 semantic retrieval、
+metadata minority 検出などがある。
+
+28シナリオの率直な分類と実データで判明している適用境界については
+[applicability.md](applicability.md) 参照。
+
+下記の特許要素別検証結果（Patent Feature 1–4 と統合）は、**「特許仕様
+通りに動作することを構築シナリオ上で確認した」** ものとして読まれるべき
+であり、業界横断の実世界 validation ではない。
+
 ### 特許要素別の検証結果
 
 #### 代謝制御（請求項1–10）: ✅ 全84テスト合格
@@ -241,4 +321,7 @@ pytest tests/test_patent_verification.py -k "TestIntegrationAllFeatures" -v
 ### 結論
 
 **特許の全4要素（代謝制御・希少性保護・整合性発見・メタ制御）が、
-全28業界サンプルにおいて正しく機能することを、560件の自動テストで検証した。**
+全28業界の合成シナリオにおいて仕様通り正しく動作することを、560件の
+自動テストで確認した。** これは特許請求項のリファレンス実装としての
+正しさを示すものであり、各業界の実データに対する性能保証ではない。
+実適用前には [applicability.md](applicability.md) を参照のこと。
