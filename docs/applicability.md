@@ -63,33 +63,48 @@ such as "keep the top-degree nodes."
 
 ## 4. Empirically known regions (from `kdf-perovskite`)
 
+Each item below cites the specific `kdf-perovskite` finding ID
+(`F-XXX`) that supports the claim. These IDs are the load-bearing
+references that `docs/sync_with_kdf_perovskite.md` tracks for drift
+detection.
+
 ### 4.1 Domains where the algorithm has been shown to work on real data
 
-- Git commit archival when merge rate is below ~10% (rare merge commits
-  are structurally rare AND historically important)
-- Long-conversation date/time recall (specific temporal facts are
-  structurally isolated AND query-relevant)
-- Path-critical bottleneck detection on non-scale-free graphs
-  (random graphs, planted-community graphs)
-- Orphan-node detection in personal knowledge management
+- Git commit archival when merge rate is below ~10% — rare merge
+  commits are structurally rare AND historically important.
+  (`kdf-perovskite` F-062, F-065, F-076)
+- Long-conversation date/time recall — specific temporal facts are
+  structurally isolated AND query-relevant.
+  (`kdf-perovskite` F-057, F-058)
+- Path-critical bottleneck detection on non-scale-free graphs (random
+  graphs, planted-community graphs).
+  (`kdf-perovskite` F-061)
+- Orphan-node detection in personal knowledge management.
+  (`kdf-perovskite` F-068 and earlier orphan-detection findings)
 
 ### 4.2 Domains where the algorithm has been shown NOT to work on real data
 
 - **Scale-free networks where high-degree hubs are the important nodes**
   — citation networks, social influence detection, scale-free network
   analysis. Simple top-degree selection beats the algorithm.
+  (`kdf-perovskite` F-061)
 - **Density-based / feature-space anomaly detection** — financial fraud
   detection, Gaussian process inducing point selection, kernel SVM
   subset selection. The algorithm is no better than Random.
+  (`kdf-perovskite` F-063, F-066, F-067)
 - **General semantic retrieval** — query–document matching tasks
   (BEIR/SciFact-style). The algorithm completely fails (recall ≈ 0).
+  (`kdf-perovskite` F-045)
 - **Long-conversation general QA against modern memory systems** — the
   algorithm does not replace systems like Mem0 for general-purpose
   conversation memory.
+  (`kdf-perovskite` F-053, F-054, F-055, F-056)
 - **Citation interdisciplinary bridge detection** — recall 0% on real
   citation graphs.
+  (`kdf-perovskite` F-075)
 - **Metadata-minority detection where minority is semantic, not
   structural** — e.g. detecting cultural minorities by metadata.
+  (`kdf-perovskite` F-047)
 
 ## 5. Honest classification of the 28 example scenarios
 
@@ -193,21 +208,35 @@ importance correlation condition.
 
 ### 4. 実データで判明している適性領域（`kdf-perovskite` より）
 
+各項目は支持する `kdf-perovskite` 知見 ID (`F-XXX`) を引用する。これらは
+`docs/sync_with_kdf_perovskite.md` が drift 検出で追跡する load-bearing
+参照である。
+
 #### 4.1 実データで有効性が確認されている領域
 
 - マージレートが約10%以下の git コミット archival（稀なマージコミットが構造的稀少 **かつ** 履歴的に重要）
+  (`kdf-perovskite` F-062, F-065, F-076)
 - 長期会話における日時情報の想起（特定の時間情報は構造的に孤立 **かつ** クエリ関連性高い）
+  (`kdf-perovskite` F-057, F-058)
 - non-scale-free グラフ（ランダム・planted-community 構造）における path-critical bottleneck 検出
+  (`kdf-perovskite` F-061)
 - パーソナル knowledge management における孤立ノード検出
+  (`kdf-perovskite` F-068 ほか)
 
 #### 4.2 実データで適性が確認されていない領域
 
 - **scale-free ネットワークで高次数 hub が重要ノードである場合** — 引用ネットワーク・SNS 影響度・scale-free 分析。素直に上位次数を残す方が強い
+  (`kdf-perovskite` F-061)
 - **density-based / 特徴空間の anomaly detection** — 金融 fraud 検出・Gaussian process inducing point 選定・kernel SVM subset 選定。Random と同等
+  (`kdf-perovskite` F-063, F-066, F-067)
 - **一般的な semantic retrieval** — クエリ–文書マッチング（BEIR/SciFact 系）。recall ≈ 0 で完全に失敗
+  (`kdf-perovskite` F-045)
 - **長期会話の汎用 QA を Mem0 等の memory system 代替として用いる用途** — 一般用途では本アルゴリズムは Mem0 を置換できない
+  (`kdf-perovskite` F-053, F-054, F-055, F-056)
 - **引用ネットワークの interdisciplinary bridge 検出** — 実引用グラフで recall 0%
+  (`kdf-perovskite` F-075)
 - **構造的でなく semantic な metadata minority の検出** — 文化的少数派をメタデータで検出する等
+  (`kdf-perovskite` F-047)
 
 ### 5. 28シナリオの率直な分類
 
