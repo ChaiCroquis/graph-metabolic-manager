@@ -141,7 +141,7 @@ have been validated on real data within this repository.**
 | 22 | Media Advertising | Unverified (likely scale-free) |
 | 23 | Aviation | Plausible (path-critical safety) |
 | 24 | Pharma Manufacturing | Unverified |
-| 25 | Water Management | Plausible (path-critical) |
+| 25 | Water Management | Plausible but **single-test INCONCLUSIVE** (BattLeDIM L-Town, [F-001](VERIFIED_FINDINGS.md); marginally above min-TopDegree, below sum-TopDegree; n=33 leaks insufficient for statistical power) |
 | 26 | Construction | Unverified |
 | 27 | Mining | Unverified |
 | 28 | Hospitality | Unverified |
@@ -268,7 +268,7 @@ importance correlation condition.
 | 22 | Media Advertising | 未検証（scale-free の可能性） |
 | 23 | Aviation | 該当しそう（path-critical safety） |
 | 24 | Pharma Manufacturing | 未検証 |
-| 25 | Water Management | 該当しそう（path-critical） |
+| 25 | Water Management | 該当しそうだが **単発検証 INCONCLUSIVE**（BattLeDIM L-Town、[F-001](VERIFIED_FINDINGS.md); min-TopDegree より僅かに上、sum-TopDegree より下; n=33 leak で統計検出力不足） |
 | 26 | Construction | 未検証 |
 | 27 | Mining | 未検証 |
 | 28 | Hospitality | 未検証 |

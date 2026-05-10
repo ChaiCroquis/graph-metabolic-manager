@@ -26,7 +26,14 @@
       "100": 0.12121212121212122,
       "200": 0.24242424242424243
     },
-    "topdegree": {
+    "topdegree_min": {
+      "10": 0.0,
+      "25": 0.0,
+      "50": 0.0,
+      "100": 0.06060606060606061,
+      "200": 0.18181818181818182
+    },
+    "topdegree_sum": {
       "10": 0.0,
       "25": 0.030303030303030304,
       "50": 0.09090909090909091,
@@ -56,7 +63,18 @@
     }
   },
   "mcnemar": {
-    "topdegree": {
+    "topdegree_min": {
+      "statistic": 0.0,
+      "p_value": 0.5,
+      "table": {
+        "both": 0,
+        "algo_only": 2,
+        "baseline_only": 0,
+        "neither": 31
+      },
+      "significant_bonferroni": false
+    },
+    "topdegree_sum": {
       "statistic": 2.0,
       "p_value": 1.0,
       "table": {
@@ -91,11 +109,11 @@
     }
   },
   "score_definition": "lex desc by (rare_count, edge_survived, -initial_degree_sum)",
-  "verdict": "H3_ACCEPT_FAILURE",
+  "verdict": "INCONCLUSIVE",
   "verdict_basis": {
     "primary_recall_algorithm": 0.06060606060606061,
-    "primary_recall_baseline_max": 0.09090909090909091,
-    "delta": -0.030303030303030304,
+    "primary_recall_baseline_max": 0.04242424242424241,
+    "delta": 0.018181818181818195,
     "any_significant": false
   }
 }

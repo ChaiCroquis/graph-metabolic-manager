@@ -234,14 +234,31 @@ def topdegree_pipe_ranking(
     junctions: list[str],
     pipes: list[tuple[str, str, str, float]],
     edge_index: list[tuple[str, int, int]],
+    aggregator: str = "min",
 ) -> list[str]:
-    """Pipes sorted by descending sum of endpoint degrees in the original graph."""
+    """Pipes sorted by descending degree-aggregator of endpoint degrees.
+
+    Per preregistration §4 H1, B1 TopDegree uses the SMALLER of the two
+    endpoint degrees ("両端ノードの次数の小さい方"). The original v1 of
+    this script erroneously used the sum; both variants are now exposed
+    so we can report both, and the literal preregistration baseline (min)
+    is the primary B1.
+    """
+    if aggregator not in {"min", "sum", "max"}:
+        raise ValueError(f"unknown aggregator: {aggregator}")
     g, _name_to_id, _ = build_graph(junctions, pipes)
     initial_degree = {nid: g.degree(nid) for nid in list(g.nodes)}
-    keyed = [
-        (pipe_id, initial_degree.get(u, 0) + initial_degree.get(v, 0))
-        for pipe_id, u, v in edge_index
-    ]
+    keyed: list[tuple[str, int]] = []
+    for pipe_id, u, v in edge_index:
+        du = initial_degree.get(u, 0)
+        dv = initial_degree.get(v, 0)
+        if aggregator == "min":
+            score = min(du, dv)
+        elif aggregator == "sum":
+            score = du + dv
+        else:
+            score = max(du, dv)
+        keyed.append((pipe_id, score))
     keyed.sort(key=lambda x: x[1], reverse=True)
     return [pipe_id for pipe_id, _ in keyed]
 
@@ -362,7 +379,15 @@ def main() -> int:
 
     # 3. Baselines
     logger.info("Computing baselines...")
-    topdeg_ranking = topdegree_pipe_ranking(junctions, pipes, edge_idx)
+    # B1 TopDegree per preregistration §4 H1: min of endpoint degrees.
+    topdeg_ranking = topdegree_pipe_ranking(
+        junctions, pipes, edge_idx, aggregator="min"
+    )
+    # Supplementary: report sum-of-degrees variant for transparency
+    # (the original v1 implementation; documents the deviation).
+    topdeg_sum_ranking = topdegree_pipe_ranking(
+        junctions, pipes, edge_idx, aggregator="sum"
+    )
     topbc_ranking = topbetweenness_pipe_ranking(junctions, pipes, edge_idx)
 
     # Random panel: 30 trials, each with seed = SEED + trial_idx
@@ -399,14 +424,18 @@ def main() -> int:
 
     recall_table: dict[str, dict[int, float]] = {
         "algorithm": {},
-        "topdegree": {},
+        "topdegree_min": {},  # primary B1 per preregistration §4 H1
+        "topdegree_sum": {},  # supplementary (original v1)
         "topbetweenness": {},
         "random_mean": {},
         "random_std": {},
     }
     for k in K_VALUES:
         recall_table["algorithm"][k] = recall_at_k(algo_ranking, leak_set, k)
-        recall_table["topdegree"][k] = recall_at_k(topdeg_ranking, leak_set, k)
+        recall_table["topdegree_min"][k] = recall_at_k(topdeg_ranking, leak_set, k)
+        recall_table["topdegree_sum"][k] = recall_at_k(
+            topdeg_sum_ranking, leak_set, k
+        )
         recall_table["topbetweenness"][k] = recall_at_k(topbc_ranking, leak_set, k)
         recall_table["random_mean"][k] = float(np.mean(random_recalls[k]))
         recall_table["random_std"][k] = float(np.std(random_recalls[k], ddof=1))
@@ -421,7 +450,8 @@ def main() -> int:
     )
     for label, key in [
         ("algorithm", "algorithm"),
-        ("topdegree", "topdegree"),
+        ("topdegree_min (B1)", "topdegree_min"),
+        ("topdegree_sum (sup)", "topdegree_sum"),
         ("topbetweenness", "topbetweenness"),
         ("random (mean±std)", None),
     ]:
@@ -439,7 +469,8 @@ def main() -> int:
     algo_top_primary = set(algo_ranking[:PRIMARY_K])
     mcnemar_results: dict[str, dict[str, object]] = {}
     for label, ranking in [
-        ("topdegree", topdeg_ranking),
+        ("topdegree_min", topdeg_ranking),
+        ("topdegree_sum", topdeg_sum_ranking),
         ("topbetweenness", topbc_ranking),
         ("random_seed42", random_rankings[0]),
     ]:
@@ -467,9 +498,11 @@ def main() -> int:
     # H3 failure:    algorithm < random OR algorithm < topdegree (preregistration text:
     #                "Algorithm が Random / TopDegree いずれかに敗北")
     # else:          inconclusive
+    #
+    # B1 TopDegree per preregistration §4 H1 = topdegree_min (literal text).
     primary_recall = recall_table["algorithm"][PRIMARY_K]
     primary_random = recall_table["random_mean"][PRIMARY_K]
-    primary_topdeg = recall_table["topdegree"][PRIMARY_K]
+    primary_topdeg = recall_table["topdegree_min"][PRIMARY_K]  # literal preregistration B1
     primary_topbc = recall_table["topbetweenness"][PRIMARY_K]
     baseline_max = max(primary_topdeg, primary_topbc, primary_random)
     delta = primary_recall - baseline_max
