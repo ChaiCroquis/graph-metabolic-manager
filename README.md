@@ -216,6 +216,31 @@ should validate on real data against an appropriate baseline (Random,
 TopDegree, domain-specific method) before any claim of effectiveness
 is made.
 
+### Real-data validation status
+
+As of 2026-05-10, **one** real-world dataset has been evaluated under
+the project's preregistered protocol:
+
+- **BattLeDIM L-Town** (Cyprus water-distribution network, 785 nodes,
+  905 pipes, 33 leak events) — **INCONCLUSIVE**. Algorithm recall@50 =
+  0.061 (2 of 33 leaks identified in top-50 ranked pipes), marginally
+  above random (0.042 ± 0.033 over 30 trials) but no preregistered
+  success criterion satisfied (no +5pp lift, no statistical
+  significance under Bonferroni, baseline-sensitive: above
+  min-TopDegree, below sum-TopDegree). See
+  [F-001](docs/VERIFIED_FINDINGS.md) for the full audit trail.
+
+Independent fresh-context verification caught two implementation
+deviations in the initial draft (a verdict-classification bug and a
+B1-baseline-definition deviation from the preregistration text) that
+would have produced incorrect verdicts; the preregistration +
+independent-audit discipline is what flipped the verdict through
+two wrong intermediate states to the correct "inconclusive". This
+is documented honestly in F-001.
+
+**No claim of real-world effectiveness is made by this project.**
+The 28 industry examples remain illustrative only.
+
 ---
 
 ## Use Cases (28 Industry Examples)

@@ -23,6 +23,30 @@ scenarios) establishes that:
 - The algorithm is deterministic, parameter-validated, and numerically
   stable across the 28 illustrative scenarios.
 
+## 1.5. Real-data validation status (2026-05-10)
+
+As of this writing, exactly **one** preregistered real-data validation
+has been completed:
+
+| ID | Dataset | Domain | Verdict | Notes |
+|---|---|---|---|---|
+| [F-001](VERIFIED_FINDINGS.md) | BattLeDIM L-Town | Water distribution / leak ranking | **INCONCLUSIVE** | Algorithm recall@50 = 0.061 vs Random 0.042; no preregistered success criterion met; baseline-sensitive |
+
+The verdict reached via this single test is **not** "the algorithm
+works on water networks". It is "on this single network with the
+preregistered protocol, the algorithm is marginally above random
+but does not decisively beat simple baselines". This is itself
+useful information: it argues against retaining the unqualified
+"Plausible" label on `#25 Water Management` (see §5 below) and
+against generalizing the win-zone classification from
+[`kdf-perovskite`](sync_with_kdf_perovskite.md) F-061 (non-scale-free
+graphs) to all utility networks.
+
+The full audit trail (preregistration, implementation, two
+verifier-caught deviations, and how the discipline forced the verdict
+through two wrong intermediate states to the correct INCONCLUSIVE)
+is in [F-001](VERIFIED_FINDINGS.md).
+
 ## 2. What the test suite does NOT establish
 
 The 28 industry scenarios are **synthetic graphs constructed by
@@ -183,6 +207,27 @@ importance correlation condition.
 - 特許の4要素（代謝制御・希少性保護・整合性発見・メタ制御）が仕様通りに実装され、規定どおりに動作する
 - **構造的に稀少なノード（低weight・低次数）が ground-truth として "価値ある" ノードと一致するように構築されたグラフ** において、希少性保護機構がそれを保存し、代謝制御がそれ以外を剪定する
 - 28シナリオ全てにわたり、決定論的・パラメータ検証済み・数値的に安定である
+
+### 1.5. 実データ検証の状況(2026-05-10)
+
+本書記載時点で、preregistered プロトコル経由で完了した実データ検証は
+**1 件のみ**:
+
+| ID | データセット | ドメイン | Verdict | 備考 |
+|---|---|---|---|---|
+| [F-001](VERIFIED_FINDINGS.md) | BattLeDIM L-Town | 配水網 / leak ranking | **INCONCLUSIVE** | recall@50 = 0.061 vs Random 0.042; preregistered 成功条件いずれも未達; ベースラインの取り方に sensitive |
+
+この単発検証から得られる verdict は「水道網でアルゴリズムが機能する」
+ではなく、「**この単一ネットワーク + preregistered プロトコルでは、
+アルゴリズムは Random を僅かに超える程度で、シンプルなベースラインに
+decisive に勝てない**」というもの。これ自体は有用な情報で、§5 の
+`#25 Water Management` を無条件 "Plausible" にとどめる根拠を弱め、
+[`kdf-perovskite`](sync_with_kdf_perovskite.md) F-061(non-scale-free
+グラフでの win-zone)を utility 一般に generalize する正当性も弱める。
+
+完全な監査記録(preregistration、実装、検証 agent が catch した2件の
+逸脱、規律が誤った中間 verdict を2段経て正しい INCONCLUSIVE に着地
+させた経緯)は [F-001](VERIFIED_FINDINGS.md) に honest に記録済み。
 
 ### 2. テストスイートが立証していないこと
 

@@ -242,6 +242,28 @@ SNS / 引用ネットワークでは高次数 hub が重要、密度ベースの
 には、必ず実データ上で適切なベースライン（Random・TopDegree・
 ドメイン固有手法）と比較することが必要。
 
+### 実データ検証の状況
+
+2026-05-10 時点で、preregistered プロトコルに従って評価された実データ
+は **1 件のみ**:
+
+- **BattLeDIM L-Town**(キプロスの配水網、785ノード / 905パイプ / 33
+  リーク event)— **INCONCLUSIVE**。アルゴリズムの recall@50 = 0.061
+  (33 リークのうち2本を上位50パイプに含む)、ランダム(0.042 ± 0.033、
+  n=30)を僅かに上回るが、preregistered の成功条件はいずれも満たさず
+  (+5pp 閾値未達 / Bonferroni 補正後の統計的有意性なし / ベースラインの
+  取り方に sensitive — min-TopDegree より上、sum-TopDegree より下)。
+  詳細監査記録は [F-001](docs/VERIFIED_FINDINGS.md) を参照。
+
+独立な fresh-context 検証で初稿の実装に2件の逸脱(verdict 分類 bug +
+B1 baseline の preregistration 逐字逸脱)が発見され、いずれも誤った
+verdict を生む可能性があった。preregistration + 独立検証 discipline
+が機能して、最終 verdict は2段階の誤った中間状態を経て正しい
+"inconclusive" に着地した。F-001 内に honest に記録済み。
+
+**本プロジェクトは実データでの有効性を一切主張していない。** 28業界
+example は illustration のみ。
+
 ---
 
 ## 適用業界（28業界のサンプル）
