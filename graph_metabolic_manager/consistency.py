@@ -400,16 +400,16 @@ class ConsistencyDiscovery:
                     continue
 
                 # Compute per-pair relational & attribute similarity
-                rel = (
-                    relational_similarity(graph, rare_id, cand_id)
-                    if auto_rel
-                    else s_rel
-                )
-                attr = (
-                    attribute_similarity(graph, rare_id, cand_id)
-                    if auto_attr
-                    else s_attr
-                )
+                if auto_rel:
+                    rel = relational_similarity(graph, rare_id, cand_id)
+                else:
+                    assert s_rel is not None  # auto_rel=False ⇒ s_rel is float
+                    rel = s_rel
+                if auto_attr:
+                    attr = attribute_similarity(graph, rare_id, cand_id)
+                else:
+                    assert s_attr is not None  # auto_attr=False ⇒ s_attr is float
+                    attr = s_attr
 
                 repr_cand = self._get_repr(graph, cand_id)
                 score = consistency_score(repr_rare, repr_cand, rel, attr)

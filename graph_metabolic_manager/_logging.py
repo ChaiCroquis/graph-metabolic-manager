@@ -52,7 +52,7 @@ def _register_trace_level() -> None:
             **kwargs: object,
         ) -> None:
             if self.isEnabledFor(TRACE):
-                self._log(TRACE, message, args, **kwargs)
+                self._log(TRACE, message, args, **kwargs)  # type: ignore[arg-type]
 
         logging.Logger.trace = _trace  # type: ignore[attr-defined]
 
