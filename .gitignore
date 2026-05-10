@@ -34,3 +34,14 @@ htmlcov/
 
 # Linting
 .ruff_cache/
+
+# Claude
+.claude/
+
+# Phase B-1 raw data (large, downloadable from Zenodo; HASHES.sha256 committed)
+data/battledim/*.inp
+data/battledim/*.csv
+data/battledim/*.txt
+data/battledim/*.yaml
+!data/battledim/HASHES.sha256
+

@@ -116,6 +116,7 @@ Each review produces a 1-line entry in the "Sync log" section below
 | Date | Reviewer | kdf-perovskite commit | Changes |
 |---|---|---|---|
 | 2026-05-10 | chai + Claude (initial setup) | 8dc6cd5ab268d0e0624faeb76c11bd836332e3a2 | Initial registration of F-045, F-047, F-053..F-058, F-061..F-068, F-075, F-076 as load-bearing |
+| 2026-05-10 | chai + Claude (Phase B-1 draft) | 8dc6cd5ab268d0e0624faeb76c11bd836332e3a2 | graph-metabolic-manager F-001 drafted (BattLeDIM L-Town leak ranking, H3 honest failure). Awaiting independent verification before applicability.md is updated. Cross-references kdf F-061 regime. |
 
 ## What this document does NOT do
 
@@ -237,6 +238,7 @@ Unverified」に格下げする。
 | 日付 | レビュアー | kdf-perovskite commit | 変更内容 |
 |---|---|---|---|
 | 2026-05-10 | chai + Claude (initial setup) | 8dc6cd5ab268d0e0624faeb76c11bd836332e3a2 | F-045, F-047, F-053..F-058, F-061..F-068, F-075, F-076 を load-bearing として初回登録 |
+| 2026-05-10 | chai + Claude (Phase B-1 draft) | 8dc6cd5ab268d0e0624faeb76c11bd836332e3a2 | graph-metabolic-manager 側 F-001 草稿(BattLeDIM L-Town leak ranking、H3 honest failure)。独立検証完了まで applicability.md は更新しない。kdf F-061 regime と cross-reference |
 
 ### 本ドキュメントが行わないこと
 
